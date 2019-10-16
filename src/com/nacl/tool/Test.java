@@ -17,6 +17,7 @@ public class Test {
         for(int i=0;i<entitys.size();i++){
             Admin admin=entitys.get(i);
             System.out.println(admin.getId());
+            System.out.println(admin.getId());
         }
 
 
