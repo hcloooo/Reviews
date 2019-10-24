@@ -11,6 +11,13 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+      <div>
+        <form action="addAdmin" method="post">
+          <input type="text" name="username">
+          <input type="password" name="pwd">
+          <input type="text" name="note">
+          <input type="submit" value="提交">
+        </form>
+      </div>
   </body>
 </html>

@@ -7,6 +7,10 @@ public class Admin {
     private String note;
     private int state;
 
+    public Admin() {
+
+    }
+
     public int getId() {
         return id;
     }

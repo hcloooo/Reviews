@@ -4,6 +4,11 @@ import java.sql.*;
 import java.util.List;
 
 public class ConnectionHelper {
+    //数据库地址
+    /*private static final String url = "jdbc:mysql://localhost:3306/EatInXd?useSSL=false";
+    private static final String driverName = "com.mysql.jdbc.Driver";
+    private static final String userName = "root";
+    private static final String password = "qq2016";*/
     private final String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private final String url="jdbc:sqlserver://localhost:1433;DatabaseName=EatInXd";
     private final String userName="sa";
@@ -84,5 +89,26 @@ public class ConnectionHelper {
             e.printStackTrace();
         }
         return rs;
+    }
+    public int executeUpdate(String sql,List<Object> p) {
+        System.out.println(sql);
+        int num=0;
+        conn=this.getConnection();
+        try{
+            psmt=conn.prepareStatement(sql);
+            if(this.psmt!=null){
+                for(int i=0;i<+p.size();i++){
+                    psmt.setObject(i+1,p.get(i));
+                }
+            }
+            num=this.psmt.executeUpdate();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            closeAll(conn,psmt,rs);
+        }
+
+        return num;
     }
 }
